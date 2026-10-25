@@ -36,6 +36,8 @@ jobs:
         run: |
           chmod +x ./gradlew || true
           gradle assembleDebug --no-daemon
+          mkdir -p final_apk
+          cp app/build/outputs/apk/debug/*.apk final_apk/
           
       - name: Commit Code and Clean Repo
         run: |
@@ -47,4 +49,4 @@ jobs:
         with:
           tag_name: v1.${{ github.run_number }}
           name: 4K Downloader v1.${{ github.run_number }}
-          files: app/build/outputs/apk/debug/*.apk
+          files: final_apk/*.apk
