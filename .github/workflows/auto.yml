@@ -39,11 +39,8 @@ jobs:
           
       - name: Commit Code and Clean Repo
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add .
-          git commit -m "Auto-extracted source code"
-          git push
+          git checkout -- .
+          git clean -fd
           
       - name: Upload APK to Releases
         uses: softprops/action-gh-release@v2
