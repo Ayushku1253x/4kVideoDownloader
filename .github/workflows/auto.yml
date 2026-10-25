@@ -1,9 +1,10 @@
-
 name: Auto Extract and Build
 on:
   push:
     paths:
       - '*.zip'
+  workflow_dispatch:
+
 permissions:
   contents: write
 jobs:
@@ -14,8 +15,8 @@ jobs:
       
       - name: Extract ZIP
         run: |
-          unzip -q 4kVideoDownloader_Fixed_Final.zip -d temp_code
-          rm 4kVideoDownloader_Fixed_Final.zip
+          unzip -q 4kVideoDownloader.zip -d temp_code
+          rm 4kVideoDownloader.zip
           mv -v temp_code/* ./
           mv -v temp_code/.* ./ 2>/dev/null || true
           rm -rf temp_code
