@@ -13,8 +13,8 @@ jobs:
       
       - name: Extract ZIP
         run: |
-          unzip -q *.zip -d temp_code
-          rm *.zip
+          unzip -q 4kVideoDownloader_Fixed_Final.zip -d temp_code
+          rm 4kVideoDownloader_Fixed_Final.zip
           mv -v temp_code/* ./
           mv -v temp_code/.* ./ 2>/dev/null || true
           rm -rf temp_code
